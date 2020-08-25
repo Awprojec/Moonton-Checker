@@ -9,17 +9,16 @@ Register to get access.<br>
 
 
 ## Commands:
+
 ```pkg update && pkg upgrade``` 
 
 ```pkg install python git```
-
-```pip install --upgrade pip```
 
 ```pip install nano```
 
 ```git clone https://github.com/Awprojec/Moonton/Checker```
 
-```cd mlchkph``` if you already installed all the requirements above you can run this command. while running back termux.<br>
+```cd Moonton/Checker``` if you already installed all the requirements above you can run this command. while running back termux.<br>
 
 ```python run.py``` after that execute the script by this command.<br>
 
