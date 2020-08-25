@@ -14,9 +14,6 @@
 # Python version : 3.7++                                   #
 ############################################################
 
-import os, sys, hashlib, json, random, re
-from get_proxy import proxy
-
 try:
   from concurrent.futures import ThreadPoolExecutor
 except ImportError:
