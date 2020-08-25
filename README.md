@@ -16,7 +16,7 @@ Register to get access.<br>
 
 ```pip install nano```
 
-```git clone https://github.com/Awprojec/Moonton/Checker```
+```git clone https://github.com/Awprojec/Moonton-Checker```
 
 ```cd Moonton/Checker``` if you already installed all the requirements above you can run this command. while running back termux.<br>
 
